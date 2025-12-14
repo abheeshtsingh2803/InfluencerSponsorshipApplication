@@ -1,0 +1,149 @@
+{
+  "info": {
+    "name": "Influencer Sponsorship Application API",
+    "_postman_id": "c1e1a830-5f00-4c33-88f1-11f7b4d02ae4",
+    "description": "Postman collection for testing Spring Boot Influencer Sponsorship API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Influencer",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"John Creator\",\n    \"socialMediaPlatform\": \"Instagram\",\n    \"followers\": 120000,\n    \"engagementRate\": 4.8\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/influencers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["influencers"]
+        }
+      }
+    },
+    {
+      "name": "Create Brand",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Nike\",\n    \"budget\": 100000\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/brands",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["brands"]
+        }
+      }
+    },
+    {
+      "name": "Create Offer",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8082/offers?brandId=1&influencerId=1&amount=2500",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["offers"],
+          "query": [
+            { "key": "brandId", "value": "1" },
+            { "key": "influencerId", "value": "1" },
+            { "key": "amount", "value": "2500" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Accept Offer",
+      "request": {
+        "method": "PATCH",
+        "url": {
+          "raw": "http://localhost:8082/offers/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["offers", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get Offers by Influencer",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/offers?influencerId=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["offers"],
+          "query": [
+            { "key": "influencerId", "value": "1" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Offers by Brand",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/offers?brandId=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["offers"],
+          "query": [
+            { "key": "brandId", "value": "1" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Influencers (Pagination + Sorting)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/influencers?page=0&size=5&sort=name,asc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["influencers"],
+          "query": [
+            { "key": "page", "value": "0" },
+            { "key": "size", "value": "5" },
+            { "key": "sort", "value": "name,asc" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Brands (Pagination + Sorting)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/brands?page=0&size=10&sort=budget,desc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["brands"],
+          "query": [
+            { "key": "page", "value": "0" },
+            { "key": "size", "value": "10" },
+            { "key": "sort", "value": "budget,desc" }
+          ]
+        }
+      }
+    }
+  ]
+}
