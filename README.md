@@ -74,3 +74,12 @@ server.port=8082
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.open-in-view=true
+```
+
+## 📥 Postman API Collection
+
+You can import the entire API collection in Postman using the file below:
+
+👉 [Download InfluencerApp.postman_collection.json](InfluencerApp.postman_collection.json)
+
+Import this file in Postman using **File → Import → InfluencerApp.postman_collection.json**.
